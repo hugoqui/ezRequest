@@ -1,0 +1,156 @@
+<section class="container" style="margin-bottom: 100px">
+    <button (click)="getTrips()"> Ver viajes </button>
+    <div class="row">
+        <div class="col-lg-12">
+            <h3> Agendar Viaje</h3>
+        </div>
+    </div>
+    <form action="/Events/Create" method="post">
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="card">
+                    <header class="card-header bg-dark text-secondary">
+                        Datos de Solicitud
+                    </header>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Fecha</label>
+                            <div class="col-sm-4 col-xs-12">
+                                <input id="PickupDate" name="PickupDate" type="date" class="form-control round-input">
+                            </div>
+                            <label class="col-sm-2 control-label">Hora</label>
+                            <div class="col-sm-4 col-xs-12">
+                                <input id="PickupTime" name="PickupTime" type="time" class="form-control round-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label  ">Origen</label>
+                            <div class="col-sm-4 col-xs-12">
+                                <input id="Title" name="Title" type="text" class="form-control round-input">
+                            </div>
+                            <label class="col-sm-2 col-xs-12 control-label  ">Destino</label>
+                            <div class="col-sm-4">
+                                <input id="Destination" name="Destination" type="text" class="form-control round-input">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <br>
+                <section class="card">
+                    <header class="card-header bg-dark text-secondary">
+                        Datos de Pasajeros
+                    </header>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label  ">Nombre Contacto</label>
+                            <div class="col-sm-4">
+                                <input id="MainPax" name="MainPax" type="text" class="form-control round-input">
+                            </div>
+                            <label class="col-sm-2 control-label  ">Pasajeros</label>
+                            <div class="col-sm-1">
+                                <select id="PaxNumber" name="PaxNumber" class="form-control round-input">
+                                              <option value="1">1</option>
+                                  </select>
+                            </div>
+                            <label class="col-sm-1 control-label  ">Telefono</label>
+                            <div class="col-sm-2">
+                                <input id="MainPaxPhone" name="MainPaxPhone" type="tel" class="form-control round-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label  ">Email</label>
+                            <div class="col-sm-4">
+                                <input id="MainPaxEmail" name="MainPaxEmail" type="email" class="form-control round-input">
+                            </div>
+                            <label class="col-sm-2 control-label  ">Vuelo</label>
+                            <div class="col-sm-4">
+                                <input id="FlightNumber" name="FlightNumber" type="text" class="form-control round-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label  ">Comentarios</label>
+                            <div class="col-sm-10">
+                                <textarea id="Comments" name="Comments" rows="4" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <br>
+                <section class="card">
+                    <header class="card-header bg-dark text-secondary">
+                        Datos de Piloto
+                    </header>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label">Piloto</label>
+                            <div class="col-sm-4">
+                                <select id="DriverId" name="DriverId" class="form-control">
+                                          <option value="11">Pedro Martinez</option>
+                                          <option value="12">Julio Zamora</option>
+                                          <option value="13">Pedro Gómez</option>
+                                          <option value="14">Hugo Quiñónez</option>
+                                          <option value="15">Gerson Geronimo</option>
+                                  </select>
+                            </div>
+                            <label class="col-sm-2 control-label">Automóvil</label>
+                            <div class="col-sm-4">
+                                <select id="CarPlate" name="CarPlate" class="form-control">
+                                          <option value="P0364MB   ">Toyota Corolla</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="row form-group text-center">
+                            <div class="col-md-12">
+                                <input type="submit" class="btn btn-default" value="Registrar" onclick="SendEmail()">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </form>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    function SendEmail() {
+        var toEmail = "";
+        var driverId = $("#DriverId").val();
+        $.get("/api/trips/getDriverEmail/" + driverId, function(data) {
+            toEmail = data;
+
+            var subject = $("#Title").val() + " a => " + $("#Destination").val();
+
+            var message = "Fecha: <strong>" + $("#PickupDate").val() + "</strong> <br />";
+            message = message + "Hora: <strong>" + $("#PickupTime").val() + "</strong> <br />";
+            message = message + "Origen: <strong>" + $("#Title").val() + "</strong> <br />";
+            message = message + "Destino: <strong>" + $("#Destination").val() + "</strong> <br />";
+            message = message + "Placas: <strong>" + $("#CarPlate").val() + "</strong> <br />";
+            message = message + "Comentario: <strong>" + $("#Comments").val() + "</strong> <br />";
+            message = message + "Vuelo: <strong>" + $("#FlightNumber").val() + "</strong> <br />";
+            message = message + "Contacto: <strong>" + $("#MainPax").val() + "</strong> <br />";
+            message = message + "Email: <strong>" + $("#MainPaxEmail").val() + "</strong> <br />";
+            message = message + "Telefono: <strong>" + $("#MainPaxPhone").val() + "</strong> <br />";
+            message = message + "Pasajeros: <strong>" + $("#PaxNumber").val() + "</strong> <br />";
+            message = message + "Piloto: <h3>" + $("#DriverId option:selected").text() + "</h3>";
+
+            Email.send("hugo2555@gmail.com",
+                toEmail,
+                subject,
+                message,
+                "smtp.gmail.com",
+                "hugo2555@gmail.com",
+                "uno1dos2tres3");
+
+            alert('Viaje Agendado');
+        });
+    }
+
+    $(document).ready(function() {
+        $('ul[class="sidebar-menu"] li').removeClass('active');
+        $('#newTripMenu').addClass('active');
+    });
+</script>
