@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DataService } from '../data.service';
+
 @Component({
   selector: 'app-trip-request',
   templateUrl: './trip-request.component.html',
@@ -8,10 +10,11 @@ import { HttpClient } from '@angular/common/http';
 
 export class TripRequestComponent implements OnInit {
   tripTitle: string;
-
-  constructor(private http: HttpClient) { }
+  public username: any;
+  constructor(private http: HttpClient, private _data: DataService) { }
 
   ngOnInit() {
+        this.username = this._data.getUserName();
   }
 
   getTrips() {

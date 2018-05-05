@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-login',
@@ -12,25 +13,14 @@ export class LoginComponent implements OnInit {
   data: string;
   userName = '';
   password = '';
-
-  user: any;
-  constructor(private http: HttpClient, private router: Router) { }
+  errorMessage = '';
+  constructor(private http: HttpClient, private router: Router, private _data: DataService) { }
 
   ngOnInit() {
   }
 
-  SendData() {
-    this.data = this.userName + ',' + this.password;
-    this.http.get('http://localhost:51234/api/trips/clientLogin/' + this.data )
-    .subscribe(
-      response => {
-        this.user = response;
-        this.GiveAccess();
-      }
-    );
+  sendData() {
+    this._data.CheckData(this.userName, this.password, this.errorMessage);
   }
 
-  GiveAccess() {
-    this.router.navigate(['home']);
-  }
 }

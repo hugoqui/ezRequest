@@ -2,10 +2,10 @@
     <button (click)="getTrips()"> Ver viajes </button>
     <div class="row">
         <div class="col-lg-12">
-            <h3> Agendar Viaje</h3>
+            <h3> Agendar Viaje <small>{{username}}</small> </h3>
         </div>
     </div>
-    <form action="/Events/Create" method="post">
+    <form>
         <div class="row">
             <div class="col-lg-12">
                 <section class="card">
@@ -49,9 +49,7 @@
                             </div>
                             <label class="col-sm-2 control-label  ">Pasajeros</label>
                             <div class="col-sm-1">
-                                <select id="PaxNumber" name="PaxNumber" class="form-control round-input">
-                                              <option value="1">1</option>
-                                  </select>
+                                <input id="PaxNumber" name="PaxNumber" type="number" class="form-control round-input">
                             </div>
                             <label class="col-sm-1 control-label  ">Telefono</label>
                             <div class="col-sm-2">
@@ -76,39 +74,15 @@
                                 <textarea id="Comments" name="Comments" rows="4" class="form-control"></textarea>
                             </div>
                         </div>
+
+                        <div class="row form-group text-center">
+                            <div class="col-md-12">
+                                <input type="submit" class="btn btn-default" value="Solicitar" onclick="SendEmail()">
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <br>
-                <section class="card">
-                    <header class="card-header bg-dark text-secondary">
-                        Datos de Piloto
-                    </header>
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label">Piloto</label>
-                            <div class="col-sm-4">
-                                <select id="DriverId" name="DriverId" class="form-control">
-                                          <option value="11">Pedro Martinez</option>
-                                          <option value="12">Julio Zamora</option>
-                                          <option value="13">Pedro Gómez</option>
-                                          <option value="14">Hugo Quiñónez</option>
-                                          <option value="15">Gerson Geronimo</option>
-                                  </select>
-                            </div>
-                            <label class="col-sm-2 control-label">Automóvil</label>
-                            <div class="col-sm-4">
-                                <select id="CarPlate" name="CarPlate" class="form-control">
-                                          <option value="P0364MB   ">Toyota Corolla</option>
-                                  </select>
-                            </div>
-                        </div>
-                        <div class="row form-group text-center">
-                            <div class="col-md-12">
-                                <input type="submit" class="btn btn-default" value="Registrar" onclick="SendEmail()">
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </div>
         </div>
     </form>
@@ -118,11 +92,11 @@
 <script>
     function SendEmail() {
         var toEmail = "";
-        var driverId = $("#DriverId").val();
-        $.get("/api/trips/getDriverEmail/" + driverId, function(data) {
-            toEmail = data;
 
-            var subject = $("#Title").val() + " a => " + $("#Destination").val();
+        $.get("/api/trips/getDriverEmail/" + driverId, function(data) {
+            toEmail = "hugo_2555@hotmail.com";
+
+            var subject = "Solicitud Viaje eZTrip";
 
             var message = "Fecha: <strong>" + $("#PickupDate").val() + "</strong> <br />";
             message = message + "Hora: <strong>" + $("#PickupTime").val() + "</strong> <br />";
@@ -135,7 +109,7 @@
             message = message + "Email: <strong>" + $("#MainPaxEmail").val() + "</strong> <br />";
             message = message + "Telefono: <strong>" + $("#MainPaxPhone").val() + "</strong> <br />";
             message = message + "Pasajeros: <strong>" + $("#PaxNumber").val() + "</strong> <br />";
-            message = message + "Piloto: <h3>" + $("#DriverId option:selected").text() + "</h3>";
+
 
             Email.send("hugo2555@gmail.com",
                 toEmail,
