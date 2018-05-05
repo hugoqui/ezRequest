@@ -16,13 +16,6 @@ export class TripRequestComponent implements OnInit {
 
   getTrips() {
     this.http.get('http://eztrip.azurewebsites.net/api/trips/getTrips')
-    .subscribe(res => console.log(res))
-    ;
-    // return this.http.get<Config>(this.configUrl);
+    .subscribe(res => console.log(res));
   }
-
-  // this.http.get('http://eztrip.azurewebsites.net/api/trips/getTrips');
-
-  // this.http.get('people.json').subscribe((res:Response) => this.people = res.json());
-
 }
