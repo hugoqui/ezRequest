@@ -9,7 +9,41 @@
   <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
 
   <link rel="icon" type="image/x-icon" href="https://www.rewardexpert.com/blog/wp-content/themes/rewardexpert/images/favicon/apple-icon-180x180-6195aa6739b72bed9b2bbff2e92ab2ed.png" >
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://smtpjs.com/v2/smtp.js"></script>
+  <script>
+      function SendEmail() {
+          var toEmail = "";
+              toEmail = "hugo_2555@hotmail.com";
+              var subject = "Solicitud Viaje eZTrip " + $("#clientName").text();
+              var message = "Fecha: <strong>" + $("#PickupDate").val() + "</strong> <br />";
+              message = message + "Hora: <strong>" + $("#PickupTime").val() + "</strong> <br />";
+              message = message + "Origen: <strong>" + $("#Title").val() + "</strong> <br />";
+              message = message + "Destino: <strong>" + $("#Destination").val() + "</strong> <br />";
+              message = message + "Comentario: <strong>" + $("#Comments").val() + "</strong> <br />";
+              message = message + "Vuelo: <strong>" + $("#FlightNumber").val() + "</strong> <br />";
+              message = message + "Contacto: <strong>" + $("#MainPax").val() + "</strong> <br />";
+              message = message + "Email: <strong>" + $("#MainPaxEmail").val() + "</strong> <br />";
+              message = message + "Telefono: <strong>" + $("#MainPaxPhone").val() + "</strong> <br />";
+              message = message + "Pasajeros: <strong>" + $("#PaxNumber").val() + "</strong> <br />";
 
+
+              Email.send("hugo2555@gmail.com",
+                  toEmail,
+                  subject,
+                  message,
+                  "smtp.gmail.com",
+                  "hugo2555@gmail.com",
+                  "uno1dos2tres3");
+
+              alert('Viaje Agendado');
+      }
+
+      $(document).ready(function() {
+          $('ul[class="sidebar-menu"] li').removeClass('active');
+          $('#newTripMenu').addClass('active');
+      });
+  </script>
 
 </head>
 <body>

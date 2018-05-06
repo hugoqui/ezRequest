@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,22 +7,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export class DataService {
 
-  public userName: any;
   data: any;
-  myvariable = 'hola';
+  public currentUser: any;
+
   constructor(private http: HttpClient, private router: Router) { }
 
-  userLogged(userName) {
-    this.userName = userName.Name;
+  userLogged(user) {
+    this.currentUser = user;
   }
 
   getUserName() {
-    return this.userName;
+    return this.currentUser;
   }
 
   CheckData(userName, password, errorMessage) {
     this.data = userName + ',' + password;
-    this.http.get('http://localhost:51234/api/trips/clientLogin/' + this.data )
+    this.http.get('http://eztrip.azurewebsites.net/api/trips/clientLogin/' + this.data )
     .subscribe(
       response => {
         if (response != null) {
@@ -38,6 +37,23 @@ export class DataService {
     ;
   }
 
+  NavigateTo(route) {
+    this.router.navigate([route]);
+  }
 
+  PostRequest(trip: any) {
 
+    this.http.post('http://eztrip.azurewebsites.net/api/trips/tripRequest/', trip )
+    .subscribe(
+      response => {
+        if (response != null) {
+          this.userLogged(response);
+          this.router.navigate(['home']);
+        } else {
+          return 'Error al crear solicitud';
+        }
+      }
+    )
+    ;
+  }
 }

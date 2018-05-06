@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-trip-request',
@@ -9,16 +9,27 @@ import { DataService } from '../data.service';
 })
 
 export class TripRequestComponent implements OnInit {
-  tripTitle: string;
   public username: any;
-  constructor(private http: HttpClient, private _data: DataService) { }
+  PickupDate: any;
+  PickupTime: any;
+  Title: any;
+  Destination: any;
+  MainPax: any;
+  PaxNumber: any;
+  MainPaxPhone: any;
+  MainPaxEmail: any;
+  FlightNumber: any;
+  Comments: any;
+
+  constructor(public  _data: DataService, private http: HttpClient) { }
 
   ngOnInit() {
-        this.username = this._data.getUserName();
+    this.username = this._data.currentUser.Name;
   }
 
-  getTrips() {
-    this.http.get('http://eztrip.azurewebsites.net/api/trips/getTrips')
-    .subscribe(res => console.log(res));
+  postRequest() {
+
+
+
   }
 }

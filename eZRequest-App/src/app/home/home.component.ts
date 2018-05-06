@@ -7,10 +7,10 @@ import { DataService } from '../data.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public username: any;
-  constructor(private _data: DataService) { }
+  public username: string;
+  constructor(public  _data: DataService) { }
 
   ngOnInit() {
-     this.username = this._data.userName;
+    this.username = this._data.currentUser.Name;
   }
 }
