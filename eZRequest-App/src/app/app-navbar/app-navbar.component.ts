@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ export class AppNavbarComponent implements OnInit {
      }
 
 
-  constructor() { }
+  constructor(public  _data: DataService) { }
 
   ngOnInit() {
   }

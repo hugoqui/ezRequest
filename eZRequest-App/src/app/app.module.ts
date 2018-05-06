@@ -11,6 +11,8 @@ import { DataService } from './data.service';
 import { HomeComponent } from './home/home.component';
 import { TripRequestComponent } from './trip-request/trip-request.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
+import { MytripsComponent } from './mytrips/mytrips.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AppNavbarComponent } from './app-navbar/app-navbar.component';
     HomeComponent,
     AppNavbarComponent,
     TripRequestComponent,
-    LoginComponent
+    LoginComponent,
+    MytripsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

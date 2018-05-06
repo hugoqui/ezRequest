@@ -1,4 +1,4 @@
-<main class="container">
+<main class="container" style="padding: 0 30px">
     <h3 class="text-primary">
         {{username}}
     </h3>
@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-body">
                     <p class="card-text">Vea el historial de los viajes solicitados, realizados y cancelados.</p>
-                    <button type="button" class="btn btn-secondary ">Ver viajes...</button>
+                    <button type="button" class="btn btn-secondary" (click)="_data.NavigateTo('mytrips')">Ver viajes...</button>
                 </div>
             </div>
 
@@ -36,7 +36,7 @@
                 </div>
                 <div class="card-body">
                     <p class="card-text">Acceda y modifique sus datos de contacto, como telefono o email.</p>
-                    <button type="button" class="btn btn-secondary">Acceder...</button>
+                    <button type="button" class="btn btn-secondary" (click)="_data.NavigateTo('profile')">Acceder...</button>
                 </div>
             </div>
 
