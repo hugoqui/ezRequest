@@ -9,6 +9,7 @@ export class DataService {
 
   data: any;
   public currentUser: any;
+  public tripList: any;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -22,7 +23,7 @@ export class DataService {
 
   CheckData(userName, password, errorMessage) {
     this.data = userName + ',' + password;
-    this.http.get('http://eztrip.azurewebsites.net/api/trips/clientLogin/' + this.data )
+    this.http.get('http://eztrip.azurewebsites.net/api/trips/login/' + this.data )
     .subscribe(
       response => {
         if (response != null) {
@@ -33,6 +34,16 @@ export class DataService {
         }
       },
       error => errorMessage = 'Error al acceder'
+    )
+    ;
+  }
+
+  GetTrips(): any {
+    this.http.get('http://eztrip.azurewebsites.net/api/trips/gettripsbyclient/' + this.currentUser.UserName )
+    .subscribe(response => {
+          this.tripList = response;
+          return response;
+      }
     )
     ;
   }
