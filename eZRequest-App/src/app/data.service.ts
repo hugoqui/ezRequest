@@ -23,17 +23,24 @@ export class DataService {
 
   CheckData(userName, password, errorMessage) {
     this.data = userName + ',' + password;
+    // alert(userName);
     this.http.get('http://eztrip.azurewebsites.net/api/trips/login/' + this.data )
     .subscribe(
       response => {
         if (response != null) {
           this.userLogged(response);
+          // alert('primera parte');
           this.router.navigate(['home']);
+          // alert('llego hasta la navegacion');
         } else {
+          // alert('devolvio nulo');
           errorMessage = 'Error al acceder';
         }
       },
-      error => errorMessage = 'Error al acceder'
+      error => {
+        errorMessage = 'Error al acceder';
+        alert(error);
+      }
     )
     ;
   }

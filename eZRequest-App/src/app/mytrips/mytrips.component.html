@@ -19,9 +19,9 @@
                 <strong *ngIf="trip.Driver" >Piloto:</strong> {{trip.Driver}} <br>
             </p>
             <small *ngIf="trip.Description == 'Active'" class="text-success" style="float: right"> {{trip.Description}}</small>
-            <small *ngIf="trip.Description == 'Cancelled'" class="text-danger" style="float: right"> {{trip.Description}}</small>
+            <small *ngIf="trip.Description == 'cancelled'" class="text-danger" style="float: right"> {{trip.Description}}</small>
             <small *ngIf="trip.Description == 'Pending'" class="text-secondary" style="float: right"> {{trip.Description}}</small>
-            <small *ngIf="trip.Description == 'Finished'" class="text-primary" style="float: right"> {{trip.Description}}</small>
+            <small *ngIf="trip.Description == 'finished'" class="text-primary" style="float: right"> {{trip.Description}}</small>
         </a>
     </div>
 
