@@ -38,16 +38,6 @@ export class DataService {
     ;
   }
 
-  GetTrips(): any {
-    this.http.get('http://eztrip.azurewebsites.net/api/trips/gettripsbyclient/' + this.currentUser.UserName )
-    .subscribe(response => {
-          this.tripList = response;
-          return response;
-      }
-    )
-    ;
-  }
-
   NavigateTo(route) {
     this.router.navigate([route]);
   }
@@ -66,5 +56,14 @@ export class DataService {
       }
     )
     ;
+
+  }
+
+  getDefaultIfNull(text): string {
+    if (text != null) {
+      return text.toString();
+    } else {
+      return '- - -';
+    }
   }
 }

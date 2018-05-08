@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService  } from '../data.service';
+import { HttpClient } from '@angular/common/http';
+import { DataService} from '../data.service';
+
 @Component({
   selector: 'app-mytrips',
   templateUrl: './mytrips.component.html',
@@ -7,16 +9,25 @@ import { DataService  } from '../data.service';
 })
 
 export class MytripsComponent implements OnInit {
+  constructor(private http: HttpClient, public _data: DataService) { }
+
   myTrips: any;
-  myList: any[];
-  constructor(public _data: DataService) { }
 
   ngOnInit() {
-    this.myList = this._data.GetTrips();
-    this.myTrips = this._data.tripList;
+
+    const url = 'http://eztrip.azurewebsites.net/api/trips/gettripsbyclient/' +   this._data.currentUser.UserName;
+    console.log(url);
+
+    this.http.get(url)
+    .subscribe(
+      response => {
+          this.myTrips = response;
+          console.log(this.myTrips);
+        }
+      );
   }
 
-  Type() {
-    console.log(this.myTrips);
+  getDefaultIfNull(text) {
+    return this._data.getDefaultIfNull(text);
   }
 }

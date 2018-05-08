@@ -47,7 +47,7 @@ export class TripRequestComponent implements OnInit {
      this.data = this.data + this._data.currentUser.UserName;
     console.log(this.data.toString());
 
-    this.http.get('http://localhost:51234/api/trips/newRequest/' + this.data.toString())
+    this.http.get('http://eztrip.azurewebsites.net/api/trips/newRequest/' + this.data.toString())
       .subscribe(res => {
             console.log('Hasta aqui 5');
             this._data.NavigateTo('home');
