@@ -1,28 +1,29 @@
 <section class="container">
+    <div *ngFor="let trip of myTrips">
+        <div class="list-group">
+            <a class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between text-info">
+                    <h5 class="mb-1"> {{getDefaultIfNull(trip.Title)}} > {{getDefaultIfNull(trip.Destination)}} </h5>
+                    <small class="text-muted">{{trip.PickupDate | date}}  {{trip.PickupTime}}</small>
+                </div>
+                <p class="mb-1">
+                    <strong>Comentario:</strong> {{trip.Comments}}<br>
+                    <strong>Vuelo:</strong> {{trip.FlightNumber}}<br>
+                    <strong>Contacto:</strong> {{trip.MainPax}}<br>
+                    <strong>Email:</strong> {{trip.MainPaxEmail}} <br>
+                    <strong>Telefono:</strong> {{trip.MainPaxPhone}}<br>
+                    <strong>Pasajeros:</strong> {{trip.PaxNumber}}<br>
 
-    <div class="list-group" *ngFor="let trip of myTrips">
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between text-info">
-                <h5 class="mb-1"> {{getDefaultIfNull(trip.Title)}} > {{getDefaultIfNull(trip.Destination)}} </h5>
-                <small class="text-muted">{{trip.PickupDate | date}}  {{trip.PickupTime}}</small>
-            </div>
-            <p class="mb-1">
-                <strong>Comentario:</strong> {{trip.Comments}}<br>
-                <strong>Vuelo:</strong> {{trip.FlightNumber}}<br>
-                <strong>Contacto:</strong>  {{trip.MainPax}}<br>
-                <strong>Email:</strong> {{trip.MainPaxEmail}} <br>
-                <strong>Telefono:</strong>  {{trip.MainPaxPhone}}<br>
-                <strong>Pasajeros:</strong>  {{trip.PaxNumber}}<br>
-
-                <!-- <strong *ngIf="trip.Driver"  >Piloto:</strong> {{trip.Driver.Name}} <br> -->
-                <strong *ngIf="!trip.Driver">Piloto:</strong>--<br>
-                <strong *ngIf="trip.Driver" >Piloto:</strong> {{trip.Driver}} <br>
-            </p>
-            <small *ngIf="trip.Description == 'Active'" class="text-success" style="float: right"> {{trip.Description}}</small>
-            <small *ngIf="trip.Description == 'cancelled'" class="text-danger" style="float: right"> {{trip.Description}}</small>
-            <small *ngIf="trip.Description == 'Pending'" class="text-secondary" style="float: right"> {{trip.Description}}</small>
-            <small *ngIf="trip.Description == 'finished'" class="text-primary" style="float: right"> {{trip.Description}}</small>
-        </a>
+                    <!-- <strong *ngIf="trip.Driver"  >Piloto:</strong> {{trip.Driver.Name}} <br> -->
+                    <strong *ngIf="!trip.Driver">Piloto:</strong>--<br>
+                    <strong *ngIf="trip.Driver">Piloto:</strong> {{trip.Driver}} <br>
+                </p>
+                <small *ngIf="trip.Description == 'Active'" class="text-success" style="float: right"> {{trip.Description}}</small>
+                <small *ngIf="trip.Description == 'cancelled'" class="text-danger" style="float: right"> {{trip.Description}}</small>
+                <small *ngIf="trip.Description == 'Pending'" class="text-secondary" style="float: right"> {{trip.Description}}</small>
+                <small *ngIf="trip.Description == 'finished'" class="text-primary" style="float: right"> {{trip.Description}}</small>
+            </a>
+        </div>
+        <br>
     </div>
-
 </section>

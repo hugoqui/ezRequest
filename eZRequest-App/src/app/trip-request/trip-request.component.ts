@@ -10,12 +10,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 export class TripRequestComponent implements OnInit {
   public username: any;
-  PickupDate = '';
+  PickupDate: any;
   PickupTime = '';
   Title = '';
   Destination = '';
   MainPax = '';
-  PaxNumber = '';
+  PaxNumber = 1;
   MainPaxPhone = '';
   MainPaxEmail = '';
   FlightNumber = '';
@@ -25,13 +25,42 @@ export class TripRequestComponent implements OnInit {
   constructor(public  _data: DataService, private http: HttpClient) { }
 
   ngOnInit() {
-    this.username = this._data.currentUser.Name;
+    $('.nav-item').removeClass('active');
+    $('#triprequestMenu').addClass('active');
+
+    const yy = new Date().getFullYear();
+    const m = new Date().getMonth() + 1;
+    const d = new Date().getDay();
+    let mm: any;
+    if (m < 10) {
+      mm = '0' + m;
+    } else {
+      mm = m;
+    }
+
+    let dd: any;
+    if (d < 10) {
+      dd = '0' + d;
+    } else {
+      dd = d;
+    }
+
+    const fullDate = yy + '-' + mm + '-' + dd;
+
+    this.PickupDate =  fullDate;
+
+    const dt = new Date();
+    const time = dt.getHours() + ':' + dt.getMinutes() + ':00';
+
+    this.PickupTime = time;
+
+    // this.username = this._data.currentUser.Name;
   }
 
   postRequest() {
      this.MainPaxEmail = this.MainPaxEmail.toString().replace('@', '_');
      this.MainPaxEmail = this.MainPaxEmail.toString().replace('.', ',');
-     this.PickupTime = this.PickupTime.toString().replace(':', '_');
+     this.PickupTime = this.PickupTime.toString().replace(/:/g, '_');
 
      this.data = this.Comments + '!';
      this.data = this.data + 'Pending!';
@@ -47,7 +76,7 @@ export class TripRequestComponent implements OnInit {
      this.data = this.data + this._data.currentUser.UserName;
     console.log(this.data.toString());
 
-    this.http.get('http://eztrip.azurewebsites.net/api/trips/newRequest/' + this.data.toString())
+    this.http.get('https://eztrip.azurewebsites.net/api/trips/newRequest/' + this.data.toString())
       .subscribe(res => {
             console.log('Hasta aqui 5');
             this._data.NavigateTo('home');

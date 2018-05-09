@@ -14,8 +14,10 @@ export class MytripsComponent implements OnInit {
   myTrips: any;
 
   ngOnInit() {
+    $('.nav-item').removeClass('active');
+    $('#mytripsMenu').addClass('active');
 
-    const url = 'http://eztrip.azurewebsites.net/api/trips/gettripsbyclient/' +   this._data.currentUser.UserName;
+    const url = 'https://eztrip.azurewebsites.net/api/trips/gettripsbyclient/' +   this._data.currentUser.UserName;
     console.log(url);
 
     this.http.get(url)

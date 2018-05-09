@@ -11,6 +11,9 @@ export class HomeComponent implements OnInit {
   constructor(public  _data: DataService) { }
 
   ngOnInit() {
+    $('.nav-item').removeClass('active');
+    $('#homeMenu').addClass('active');
+
     this.username = this._data.currentUser.Name;
   }
 }

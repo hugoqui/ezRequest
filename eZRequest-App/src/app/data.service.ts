@@ -10,6 +10,7 @@ export class DataService {
   data: any;
   public currentUser: any;
   public tripList: any;
+  public originalPassword: any;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -24,11 +25,12 @@ export class DataService {
   CheckData(userName, password, errorMessage) {
     this.data = userName + ',' + password;
     // alert(userName);
-    this.http.get('http://eztrip.azurewebsites.net/api/trips/login/' + this.data )
+    this.http.get('https://eztrip.azurewebsites.net/api/trips/login/' + this.data )
     .subscribe(
       response => {
         if (response != null) {
           this.userLogged(response);
+          this.originalPassword = password;
           // alert('primera parte');
           this.router.navigate(['home']);
           // alert('llego hasta la navegacion');
@@ -51,7 +53,7 @@ export class DataService {
 
   PostRequest(trip: any) {
 
-    this.http.post('http://eztrip.azurewebsites.net/api/trips/tripRequest/', trip )
+    this.http.post('https://eztrip.azurewebsites.net/api/trips/tripRequest/', trip )
     .subscribe(
       response => {
         if (response != null) {
