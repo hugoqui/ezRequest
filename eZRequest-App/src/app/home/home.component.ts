@@ -16,4 +16,5 @@ export class HomeComponent implements OnInit {
 
     this.username = this._data.currentUser.Name;
   }
+
 }
