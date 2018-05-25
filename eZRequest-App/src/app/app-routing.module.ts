@@ -5,6 +5,7 @@ import { TripRequestComponent } from './trip-request/trip-request.component';
 import { LoginComponent } from './login/login.component';
 import { MytripsComponent } from './mytrips/mytrips.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NewuserComponent } from './newuser/newuser.component';
 
 const routes: Routes = [
     {
@@ -21,6 +22,9 @@ const routes: Routes = [
     },
     {
       path: 'profile', component: ProfileComponent
+    },
+    {
+      path: 'newuser', component: NewuserComponent
     }
 ];
 
