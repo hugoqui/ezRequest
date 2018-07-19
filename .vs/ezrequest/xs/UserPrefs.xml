@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{AD639733-83EC-4E6E-BFA3-77AD46D72188}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ezrequest/Main.cs">
+    <Files>
+      <File FileName="ezrequest/AppDelegate.cs" Line="23" Column="26" />
+      <File FileName="ezrequest/Main.storyboard" />
+      <File FileName="ezrequest/Main.cs" Line="12" Column="1" />
+      <File FileName="ezrequest/loginView.cs" Line="11" Column="37" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ezrequest PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.2EBC85B4-2A4C-488D-AD18-59F35DFCC9F6" automaticSigning="False" />
+  <MultiItemStartupConfigurations />
+</Properties>

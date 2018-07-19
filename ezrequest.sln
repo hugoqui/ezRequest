@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezrequest", "ezrequest\ezrequest.csproj", "{AD639733-83EC-4E6E-BFA3-77AD46D72188}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD639733-83EC-4E6E-BFA3-77AD46D72188}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{AD639733-83EC-4E6E-BFA3-77AD46D72188}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{AD639733-83EC-4E6E-BFA3-77AD46D72188}.Release|iPhone.ActiveCfg = Release|iPhone
+		{AD639733-83EC-4E6E-BFA3-77AD46D72188}.Release|iPhone.Build.0 = Release|iPhone
+		{AD639733-83EC-4E6E-BFA3-77AD46D72188}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{AD639733-83EC-4E6E-BFA3-77AD46D72188}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{AD639733-83EC-4E6E-BFA3-77AD46D72188}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{AD639733-83EC-4E6E-BFA3-77AD46D72188}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+EndGlobal

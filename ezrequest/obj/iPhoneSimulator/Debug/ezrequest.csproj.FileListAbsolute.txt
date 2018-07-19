@@ -1,0 +1,12 @@
+/Users/hugoquinonez/Projects/ezRequest/ezrequest/bin/iPhoneSimulator/Debug/ezrequest.exe
+/Users/hugoquinonez/Projects/ezRequest/ezrequest/bin/iPhoneSimulator/Debug/ezrequest.pdb
+/Users/hugoquinonez/Projects/ezRequest/ezrequest/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.3/ibtool/_BundleResourceWithLogicalName.items
+/Users/hugoquinonez/Projects/ezRequest/ezrequest/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.3/actool/_PartialAppManifest.items
+/Users/hugoquinonez/Projects/ezRequest/ezrequest/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.3/actool/_BundleResourceWithLogicalName.items
+/Users/hugoquinonez/Projects/ezRequest/ezrequest/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.3/coremlc/_PartialAppManifest.items
+/Users/hugoquinonez/Projects/ezRequest/ezrequest/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.3/coremlc/_BundleResourceWithLogicalName.items
+/Users/hugoquinonez/Projects/ezRequest/ezrequest/obj/iPhoneSimulator/Debug/device-builds/iphone10.3-11.3/optimized/
+/Users/hugoquinonez/Projects/ezRequest/ezrequest/obj/iPhoneSimulator/Debug/ezrequest.csprojResolveAssemblyReference.cache
+/Users/hugoquinonez/Projects/ezRequest/ezrequest/obj/iPhoneSimulator/Debug/ezrequest.csproj.CoreCompileInputs.cache
+/Users/hugoquinonez/Projects/ezRequest/ezrequest/obj/iPhoneSimulator/Debug/ezrequest.exe
+/Users/hugoquinonez/Projects/ezRequest/ezrequest/obj/iPhoneSimulator/Debug/ezrequest.pdb
