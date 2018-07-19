@@ -13,6 +13,7 @@ import { TripRequestComponent } from './trip-request/trip-request.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { MytripsComponent } from './mytrips/mytrips.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NewuserComponent } from './newuser/newuser.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProfileComponent } from './profile/profile.component';
     TripRequestComponent,
     LoginComponent,
     MytripsComponent,
-    ProfileComponent
+    ProfileComponent,
+    NewuserComponent
   ],
   imports: [
     BrowserModule,
